@@ -10,7 +10,7 @@ import "./interfaces/IOFT.sol";
 import "./OFTCore.sol";
 
 contract OFT is ERC20, OFTCore, IOFT {
-    constructor(string memory _name, string memory _symbol, address _lzEndpoint) ERC20(_name, _symbol, 18) OFTCore(_lzEndpoint) {}
+    constructor(string memory _name, string memory _symbol, uint8 _decimals, address _lzEndpoint) ERC20(_name, _symbol, _decimals) OFTCore(_lzEndpoint) {}
 
     function supportsInterface(bytes4 interfaceId) public view virtual override(OFTCore, IERC165) returns (bool) {
         return interfaceId == type(IOFT).interfaceId || interfaceId == type(IERC20).interfaceId || super.supportsInterface(interfaceId);
